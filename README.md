@@ -1,66 +1,56 @@
+# Hearthstone Card Search Web App
 
-Built by https://www.blackbox.ai
-
----
-
-# Hearthstone Card Search by API
-
-## Project Overview
-Hearthstone Card Search is a web application built using Flask that allows users to search for Hearthstone cards using the Hearthstone JSON API. Users can input card names or IDs, and the application will retrieve relevant card details including their attack, health, mana cost, and text description.
-
-## Installation
-To run this application, you need to have Python and Flask installed on your machine.
-
-1. **Clone the repository:**
-   ```bash
-   git clone [REPO_URL]
-   cd [REPO_NAME]
-   ```
-
-2. **Set up a virtual environment (optional but recommended):**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # On Windows use `venv\Scripts\activate`
-   ```
-
-3. **Install the required packages:**
-   Make sure you have `requests` and `flask` installed. You can install them using pip:
-   ```bash
-   pip install flask requests
-   ```
-
-## Usage
-To run the application, execute the following command:
-```bash
-python web_app.py
-```
-This will start a local web server at `http://0.0.0.0:8000`. Open this URL in your web browser to access the Hearthstone Card Search application.
-
-### Input Instructions
-- Paste Hearthstone card names or IDs into the provided text area, one per line.
-- Click the "Search Cards" button to view the card information.
+This is a Flask web application that allows users to search Hearthstone card data using the Hearthstone JSON API. It includes user authentication, saved searches, pagination, and error handling.
 
 ## Features
-- Search for Hearthstone cards by name or ID.
-- Displays card details including attack, health, mana cost, and card text.
-- User-friendly interface styled with Tailwind CSS.
-- Error handling for failed API requests and empty responses.
 
-## Dependencies
-The project depends on the following libraries:
-- Flask
-- Requests
+- User registration and login
+- Search Hearthstone cards by name or ID
+- Save previous searches for logged-in users
+- Pagination of search results
+- Custom error pages for 404 and 500 errors
+- Responsive design with Tailwind CSS
+- Deployment ready with Gunicorn and Procfile
 
-You can find these listed in the `requirements.txt` file if created or install them directly.
+## Setup
 
-## Project Structure
+1. Create a virtual environment and activate it:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
 ```
-/[PROJECT_ROOT]
-├── web_app.py           # Main application file
+
+2. Install dependencies:
+
+```bash
+pip install -r requirements.txt
 ```
 
-## Acknowledgments
-This application uses the Hearthstone JSON API for retrieving card data. You can find more information about the API [here](https://api.hearthstonejson.com/).
+3. Run the app locally:
 
+```bash
+python3 web_app.py
 ```
-Feel free to customize the repository URL and other relevant information according to your project's specifics.
+
+4. Access the app at `http://localhost:8000`
+
+## Deployment
+
+This app is ready to be deployed on platforms like Heroku using the provided `Procfile`.
+
+Run the following command to start the app with Gunicorn:
+
+```bash
+gunicorn web_app:app
+```
+
+## Notes
+
+- Replace the `app.secret_key` in `web_app.py` with a secure secret key for production.
+- The user data and saved searches are stored in-memory for demo purposes. For production, integrate a database.
+- Customize the static assets and templates as needed.
+
+## License
+
+MIT License
