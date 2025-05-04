@@ -22,13 +22,7 @@
             {% endfor %}
         </div>
         <div class="mt-4 flex justify-center space-x-2">
-            {% if page > 1 %}
-            <a href="{{ url_for('index', page=page-1) }}" class="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700">Previous</a>
-            {% endif %}
-            <span class="px-3 py-1 bg-gray-300 rounded">Page {{ page }} of {{ total_pages }}</span>
-            {% if page < total_pages %}
-            <a href="{{ url_for('index', page=page+1) }}" class="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700">Next</a>
-            {% endif %}
+            <!-- Pagination controls removed since pagination is disabled -->
         </div>
         {% elif error %}
         <p class="text-red-600">{{ error }}</p>
