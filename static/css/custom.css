@@ -1,0 +1,18 @@
+/* Custom CSS overrides and additions */
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+textarea {
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+button {
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2563eb; /* Tailwind blue-600 hover */
+}
