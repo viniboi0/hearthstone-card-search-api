@@ -88,12 +88,9 @@ def search_cards(cards, queries):
     return results
 
 def paginate_results(results, page, per_page=5):
+    # Disable pagination by returning all results on one page
     total = len(results)
-    start = (page - 1) * per_page
-    end = start + per_page
-    paginated = results[start:end]
-    total_pages = (total + per_page - 1) // per_page
-    return paginated, total_pages
+    return results, 1
 
 @app.route("/", methods=["GET", "POST"])
 @login_required
@@ -101,7 +98,7 @@ def index():
     cards_data = []
     error = None
     saved = []
-    page = request.args.get("page", 1, type=int)
+    page = 1  # Pagination disabled, always page 1
     if request.method == "POST":
         card_queries_text = request.form.get("card_queries")
         if card_queries_text:
